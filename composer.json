@@ -1,0 +1,21 @@
+{
+	"name": "elim051/yii2-wechat",
+	"description": "WeChat SDK for yii2, based on overtrue/easywechat",
+	"minimum-stability": "dev",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "James.wang",
+			"email": "elim051@163.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "~2.0.10",
+		"overtrue/wechat": "~4.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"elim051\\easywechat\\": "src"
+		}
+	}
+}
