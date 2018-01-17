@@ -27,11 +27,6 @@ class Wechat extends Component
      */
     public $config = [];
 	/**
-	 * user identity class params
-	 * @var array
-	 */
-	public $userOptions = [];
-	/**
 	 * wechat user info will be stored in session under this key
 	 * @var string
 	 */
