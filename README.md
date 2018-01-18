@@ -16,25 +16,25 @@ Add the SDK as a yii2 application `component` in the `config/main.php`:
 ```php
 
 'components' => [
-	// ...
-	'wechat' => [
-        'class' => 'maxwen\easywechat\Wechat',
-		'config' => [  // easywechat configurations
-			'app_id' => 'wx3cf0f39249eb0exx',
-		    'secret' => 'f1c242f4f28f735d4687abb469072axx',
-
-		    // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
-		    'response_type' => 'array',
-
-		    'log' => [
-		        'level' => 'debug',
-		        'file' => __DIR__.'/wechat.log',
-		    ],
-		]
-		// 'sessionParam' => '' # wechat user info will be stored in session under this key
-		// 'returnUrlParam' => '' # returnUrl param stored in session
-	],
-	// ...
+    // ...
+    'wechat' => [
+        'class' => 'elim051\easywechat\Wechat',
+        'config' => [  // easywechat configurations
+            'app_id' => 'wx3cf0f39249eb0exx',
+            'secret' => 'f1c242f4f28f735d4687abb469072axx',
+            
+            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+            'response_type' => 'array',
+            
+            'log' => [
+                'level' => 'debug',
+                'file' => __DIR__.'/wechat.log',
+            ],
+        ]
+        // 'sessionParam' => '' # wechat user info will be stored in session under this key
+        // 'returnUrlParam' => '' # returnUrl param stored in session
+    ],
+    // ...
 ]
 ```
 
@@ -45,19 +45,19 @@ Add the SDK as a yii2 application `component` in the `config/main.php`:
 
 // 微信网页授权:
 if(Yii::$app->wechat->isWechat && !Yii::$app->wechat->isAuthorized()) {
-	return Yii::$app->wechat->authorizeRequired()->send();
+    return Yii::$app->wechat->authorizeRequired()->send();
 }
 
 // 自定义scopes
 if(Yii::$app->wechat->isWechat && !Yii::$app->wechat->isAuthorized()) {
-	Yii::$app->wechat->scopes = ['snsapi_userinfo'];
-	return Yii::$app->wechat->authorizeRequired()->send();
+    Yii::$app->wechat->scopes = ['snsapi_userinfo'];
+    return Yii::$app->wechat->authorizeRequired()->send();
 }
 
 // 微信支付(JsApi):
 $orderData = [ 
-	'openid' => '.. '
-	// ... etc. 
+    'openid' => '.. '
+    // ... etc. 
 ];
 $order = new WechatOrder($orderData);
 $payment = Yii::$app->wechat->payment;
